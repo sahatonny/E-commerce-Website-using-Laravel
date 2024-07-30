@@ -1,12 +1,20 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('category',CategoryController::class);
+
+Route::resource('category', CategoryController::class);
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,6 +26,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Forgot Password Routes
+Route::get('/forget-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/forget-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+// Reset Password Routes
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+Auth::routes(['verify' => true, 'reset' => true]);
+
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.auth.php';
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

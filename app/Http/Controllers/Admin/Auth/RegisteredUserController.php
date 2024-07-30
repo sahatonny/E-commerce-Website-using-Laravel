@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Auth\Events\Registered;
@@ -42,6 +43,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($admin));
+
 
         Auth::guard('admin')->login($admin);
 

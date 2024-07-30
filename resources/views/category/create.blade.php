@@ -1,9 +1,9 @@
 @extends('layouts.frontend')
-@section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+@section('content')
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Categories List</h4>
@@ -13,31 +13,22 @@
                     <form action="{{ route('category.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label> Name </label>
-                            <label type="text" name="name" class="form-control"></label>
-
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name">
+                            @error('name') {{ $message}} @enderror
                         </div>
                         <div class="mb-3">
-                            <label>Description
-                                <textarea name="description" rows="3" class="form-control"></textarea>
-                            </label>
+                            <label for="description" class="form-label">Description</label>
+                            <textarea name="description" rows="3" class="form-control" id="description"></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label> Status </label>
-                        </br>
-                            <input type="checkbox" name="status" checked style="width:30px; height:20px" /> Checked = visible, unchecked = hidden
-
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" name="status" class="form-check-input" id="status" checked>
+                            <label class="form-check-label" for="status"></label>
                         </div>
-                        <div class="mb-3">
-                            <button type ="submit" class="btn btn-primary">Save</button>
-
+                        <div class="mb-3 text-end">
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
-
-
                     </form>
-
-
-
                 </div>
             </div>
         </div>

@@ -29,8 +29,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return view('category.store');
+        $request -> validate([
+            'name'=> 'required|string|max:255',
+            'description'=> 'required|string|max:255',
+            'status'=>'nullable',
+        ]);
+        Category::create($request->all([
+            'name'=> $request->name,
+            'description'=> $request->description,
+            'status'=> $request-> status==true?1:0
 
+
+        ]));
+        return redirect('/category')-> back()-> with('status','Category created successfully');
     }
 
     /**
@@ -40,6 +51,7 @@ class CategoryController extends Controller
     {
         //
         return view('category.show');
+
     }
 
     /**
@@ -56,7 +68,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        return view('category.update');
+
     }
 
     /**
@@ -64,6 +76,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        return view('category.destroy');
+
     }
 }
