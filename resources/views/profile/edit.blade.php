@@ -1,29 +1,37 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <h1>Edit Profile</h1>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-    </div>
-</x-app-layout>
+    @endif
+
+    <form action="{{ route('profile.update') }}" method="POST">
+        @csrf
+        @method('PATCH')
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
+        </div>
+
+        <!-- Add other fields as necessary -->
+
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+
+    <form action="{{ route('profile.destroy') }}" method="POST" style="margin-top: 20px;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete Profile</button>
+    </form>
+</div>
+@endsection
