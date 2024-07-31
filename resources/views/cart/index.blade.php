@@ -1,10 +1,18 @@
-@extends('layouts.app')
-
+@extends('layouts.frontend')
 @section('content')
-<div class="container">
-    <h1>Shopping Cart</h1>
-
-    @if(session('success'))
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <!-- Your cart HTML content here -->
+        @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
@@ -15,6 +23,8 @@
             <thead>
                 <tr>
                     <th>Product</th>
+                    <a href="{{ url('product/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ url('product/delete') }}" class="btn btn-sm btn-warning">Delete</a>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
@@ -49,5 +59,30 @@
     @else
         <p>Your cart is empty.</p>
     @endif
-</div>
+
+    </div>
+</body>
+</html>
+
+
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

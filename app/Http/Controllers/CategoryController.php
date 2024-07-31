@@ -76,6 +76,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-
+        return view('category.destroy');
     }
 }

@@ -1,5 +1,4 @@
 @extends('layouts.frontend')
-
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -20,6 +19,10 @@
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea name="description" rows="3" class="form-control" id="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input name="number" class="form-control" id="amount"></input>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" name="status" class="form-check-input" id="status" checked>

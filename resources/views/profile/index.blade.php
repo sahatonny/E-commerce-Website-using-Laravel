@@ -109,23 +109,7 @@
                 <p>Joined: </p>
             </div>
 
-            <!-- Edit Profile Button -->
-            <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit Profile</a>
-        </div>
-        <div class="profile-header">
-            <!-- Profile Picture -->
-            <div class="profile-pic-container">
-                <img src="https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE=" alt="Profile Picture" class="profile-pic">
-            </div>
-
-            <!-- Profile Info -->
-            <div class="profile-info">
-                <h1>Profile Name</h1>
-                <p>Email: </p>
-                <p>Joined: </p>
-            </div>
-
-            <!-- Edit Profile Button -->
+           <!-- Edit Profile Button -->
             <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit Profile</a>
         </div>
         <div class="profile-header">

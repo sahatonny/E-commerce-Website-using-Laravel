@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\GuestController;
-   
+
 
 Route::get('/', function () { return view('welcome'); });
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
@@ -43,11 +43,12 @@ Route::middleware('auth')->group(function () {
 Route::resource('cart', CartController::class);
 Route::middleware('auth')->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/cart', [CartController::class, 'add'])->name('cart.add');
-    Route::patch('/cart/{item}', [CartController::class, 'update'])->name('cart.update');
-    Route::delete('/cart/{item}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::get('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart/{cart}/edit', [CartController::class, 'edit'])->name('cart.edit');
+    Route::put('/cart/update', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 });
-
 
 
 Route::resource('product', ProductController::class);

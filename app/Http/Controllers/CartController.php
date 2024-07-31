@@ -18,6 +18,7 @@ class CartController extends Controller
     {
         $products = Product::all(); // Fetch all products
         return view('cart.add', compact('products'));
+
     }
     public function index()
     {
@@ -47,10 +48,26 @@ class CartController extends Controller
         $this->cart->removeItem($productId);
         return redirect()->route('cart.index')->with('success', 'Product removed from cart!');
     }
+    public function store(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
 
+        // Get the currently authenticated user
+        $user = Auth::user();
 
+        // Create a new cart item
+        CartItem::create([
+            'product_id' => $request->input('product_id'),
+            'user_id' => $user->id,
+            'quantity' => $request->input('quantity'),
+        ]);
 
-
+        return redirect()->route('cart.index')->with('success', 'Item added to cart successfully!');
+    }
 
 
 
