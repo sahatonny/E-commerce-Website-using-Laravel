@@ -14,7 +14,11 @@ class CartController extends Controller
     {
         $this->cart = $cart;
     }
-
+    public function showAddForm()
+    {
+        $products = Product::all(); // Fetch all products
+        return view('cart.add', compact('products'));
+    }
     public function index()
     {
         $items = $this->cart->getItems();
@@ -43,4 +47,14 @@ class CartController extends Controller
         $this->cart->removeItem($productId);
         return redirect()->route('cart.index')->with('success', 'Product removed from cart!');
     }
+
+
+
+
+
+
+
 }
+
+
+

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\ProfileController;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +15,14 @@ class ProfileController extends Controller
         $user = Auth::user();
         return view('profile.edit', compact('user'));
     }
+
+    public function index()
+    {
+        // Fetch data if needed and return the view
+        return view('profile.index');
+    }
+
+
 
     public function update(Request $request)
     {
@@ -37,4 +47,12 @@ class ProfileController extends Controller
 
         return redirect('/')->with('success', 'Profile deleted successfully.');
     }
+    public function show($id)
+    {
+        // Fetch profile data by ID
+      
+    }
+
+
+
 }
