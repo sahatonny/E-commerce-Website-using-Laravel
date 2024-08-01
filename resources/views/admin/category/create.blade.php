@@ -6,10 +6,10 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Categories List</h4>
-                    <a href="{{ url('category/create') }}" class="btn btn-primary">Add Category</a>
+                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary">Add Category</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('category.store') }}" method="POST">
+                    <form action="{{ route('admin.category.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>

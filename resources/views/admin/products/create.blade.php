@@ -15,36 +15,31 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.products.store') }}" method="POST" class="product-form">
+    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="product-form">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" >
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
         </div>
+
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" name="description" required>{{ old('description') }}</textarea>
         </div>
+
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="number" step="1000" class="form-control" id="price" name="price" value="{{ old('price') }}" >
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ old('price') }}" required>
         </div>
+
         <div class="form-group">
-            <form action="/upload" method="POST" enctype="multipart/form-data">
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image" accept="image/*">
-
-            </form>
-
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
         </div>
 
-        <form action="/admin/products/show" method="GET" >
-            <!-- Your form fields here -->
-
-
-            <input type="submit" value="Submit" class="btn btn-primary" required>
-        </form>
-
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
 
     <style>
@@ -92,6 +87,13 @@
             border-color: #007bff;
             outline: none;
             box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+
+        /* File Input Styles */
+        .form-control-file {
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         /* Button Container Styles */
@@ -144,4 +146,5 @@
         }
     </style>
 </div>
+
 @endsection

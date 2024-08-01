@@ -4,107 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Shopify')</title>
-    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container">
+    <header class="bg-dark text-white py-3 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center">
             <div class="header-brand">
-                <h1><a href="">Shopify</a></h1>
+                <h1 class="h3 mb-0"><a href="/" class="text-white text-decoration-none">Shopify</a></h1>
             </div>
             <nav class="header-nav">
-                <ul>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/products">Products</a></li>
-
+                <ul class="list-unstyled d-flex mb-0">
+                    <li class="mr-3"><a href="/home" class="text-white text-decoration-none" href="/products">Home</a></li>
+                    <li><a href="/products" class="text-white text-decoration-none" href="/products">Products</a></li>
                 </ul>
             </nav>
             <div class="header-search">
-                <form action="" method="GET">
-                    <input type="text" name="query" placeholder="Search...">
-                    <button type="submit">Search</button>
+                <form action="" method="GET" class="form-inline">
+                    <input type="text" name="query" class="form-control mr-2" placeholder="Search...">
+                    <button type="submit" class="btn btn-secondary">Search</button>
                 </form>
             </div>
         </div>
     </header>
 
-    <style>
-        /* Header Styles */
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    border-bottom: 2px solid #444;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.header-brand h1 {
-    margin: 0;
-}
-
-.header-brand a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 24px;
-}
-
-.header-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.header-nav li {
-    margin: 0 15px;
-}
-
-.header-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.header-nav a:hover {
-    text-decoration: underline;
-}
-
-.header-search form {
-    display: flex;
-}
-
-.header-search input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-}
-
-.header-search button {
-    padding: 5px 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.header-search button:hover {
-    background-color: #0056b3;
-}
-
-        </style>
-
     @yield('content')
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('https://code.jquery.com/jquery-3.5.1.slim.min.js') }}"></script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
