@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('frontend.index')
 
 @section('content')
 <div class="container">

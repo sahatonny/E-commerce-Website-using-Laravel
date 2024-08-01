@@ -19,7 +19,7 @@
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" >
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
@@ -27,24 +27,16 @@
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="number" step="1000" class="form-control" id="price" name="price" value="{{ old('price') }}" >
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ old('price') }}" required>
         </div>
         <div class="form-group">
-            <form action="/upload" method="POST" enctype="multipart/form-data">
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image" accept="image/*">
-
-            </form>
-
+            <label for="image">Image</label>
+            <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}" required>
         </div>
 
-        <form action="/admin/products/show" method="GET" >
-            <!-- Your form fields here -->
-
-
-            <input type="submit" value="Submit" class="btn btn-primary" required>
-        </form>
-
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </div>
     </form>
 
     <style>

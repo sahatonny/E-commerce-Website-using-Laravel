@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
-use App\Models\Product;
+use App\Services\CartService;
+
 
 class CartController extends Controller
 {
@@ -17,13 +19,13 @@ class CartController extends Controller
     public function showAddForm()
     {
         $products = Product::all(); // Fetch all products
-        return view('cart.add', compact('products'));
+        return view('admin.cart.create', compact('products'));
 
     }
     public function index()
     {
         $items = $this->cart->getItems();
-        return view('cart.index', compact('items'));
+        return view('admin.cart.index', compact('items'));
     }
 
     public function add(Request $request)
@@ -31,7 +33,7 @@ class CartController extends Controller
         $product = Product::find($request->input('product_id'));
         $quantity = $request->input('quantity', 1);
         $this->cart->addItem($product, $quantity);
-        return redirect()->route('cart.index')->with('success', 'Product added to cart!');
+        return redirect()->route('admin.cart.index')->with('success', 'Product added to cart!');
     }
 
     public function update(Request $request)
@@ -39,14 +41,14 @@ class CartController extends Controller
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
         $this->cart->updateItem($productId, $quantity);
-        return redirect()->route('cart.index')->with('success', 'Cart updated!');
+        return redirect()->route('admin.cart.index')->with('success', 'Cart updated!');
     }
 
     public function remove(Request $request)
     {
         $productId = $request->input('product_id');
         $this->cart->removeItem($productId);
-        return redirect()->route('cart.index')->with('success', 'Product removed from cart!');
+        return redirect()->route('admin.cart.index')->with('success', 'Product removed from cart!');
     }
     public function store(Request $request)
     {
@@ -66,7 +68,7 @@ class CartController extends Controller
             'quantity' => $request->input('quantity'),
         ]);
 
-        return redirect()->route('cart.index')->with('success', 'Item added to cart successfully!');
+        return redirect()->route('admin.cart.index')->with('success', 'Item added to cart successfully!');
     }
 
 

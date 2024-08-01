@@ -1,4 +1,5 @@
-
+@extends('frontend.index')
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +7,10 @@
 </head>
 <body>
     <h1>Profile Details</h1>
-    <p>Name: {{ $profile->name }}</p>
-    <p>Email: {{ $profile->email }}</p>
+    <p>Name: </p>
+    <p>Email: </p>
     <!-- Display more profile details as needed -->
 </body>
 </html>
 
+@endsection

@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('frontend.index')
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Categories List</h4>
-                    <a href="{{ url('category/create') }}" class="btn btn-primary">Add Category</a>
+                    <a href="{{ url('admin/category/create') }}" class="btn btn-primary">Add Category</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered">
@@ -27,8 +27,8 @@
                                 <td>Description</td>
                                 <td>Visible</td>
                                 <td>
-                                    <a href="{{ url('category/edit/1') }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ url('category/delete/1') }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url('admin/category/edit/1') }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('admin/category/delete/1') }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <tr>
@@ -37,8 +37,8 @@
                                 <td>Description</td>
                                 <td>Hidden</td>
                                 <td>
-                                    <a href="{{ url('category/edit/2') }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ url('category/delete/2') }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url('admin/category/edit/2') }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('admin/category/delete/2') }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <tr>
@@ -47,8 +47,8 @@
                                 <td>Description</td>
                                 <td>Hidden</td>
                                 <td>
-                                    <a href="{{ url('category/edit/3') }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ url('category/delete/3') }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url('admin/category/edit/3') }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('admin/category/delete/3') }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <tr>
@@ -57,8 +57,8 @@
                                 <td>Description</td>
                                 <td>Visible</td>
                                 <td>
-                                    <a href="{{ url('category/edit/4') }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ url('category/delete/4') }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url('admin/category/edit/4') }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('admin/category/delete/4') }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <tr>
@@ -67,8 +67,8 @@
                                 <td>Description</td>
                                 <td>Hidden</td>
                                 <td>
-                                    <a href="{{ url('category/edit/5') }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="{{ url('category/delete/5') }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url('admin/category/edit/5') }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('admin/category/delete/5') }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <!-- Add more rows as needed -->

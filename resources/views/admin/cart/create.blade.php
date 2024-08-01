@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('frontend.index')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,7 @@
     <div class="container">
         <div class="cart-form">
             <h1>Add to Cart</h1>
-            <form action="{{ route('cart.add') }}" method="POST">
+            <form action="{{ route('admin.cart.add') }}" method="POST">
                 @csrf
 
                 <!-- Product Selection -->

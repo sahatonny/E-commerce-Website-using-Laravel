@@ -1,3 +1,5 @@
+@extends('frontend.index')
+@section('content')
 <x-guest-layout>
     <h3 class="text-center mb-3"> Admin Register Page</h3>
     <form method="POST" action="{{ route('admin.register') }}">
@@ -51,3 +53,4 @@
         </div>
     </form>
 </x-guest-layout>
+@endsection

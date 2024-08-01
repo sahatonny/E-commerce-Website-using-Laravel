@@ -23,8 +23,8 @@
             <thead>
                 <tr>
                     <th>Product</th>
-                    <a href="" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="" class="btn btn-sm btn-warning">Delete</a>
+                    <a href="{{ url('product/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ url('product/delete') }}" class="btn btn-sm btn-warning">Delete</a>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
@@ -36,7 +36,7 @@
                     <tr>
                         <td>{{ $item['product']->name }}</td>
                         <td>
-                            <form action="{{ route('admin/cart/update') }}" method="POST">
+                            <form action="{{ route('cart.update') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product']->id }}">
                                 <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1">
@@ -46,7 +46,7 @@
                         <td>{{ $item['product']->price }}</td>
                         <td>{{ $item['product']->price * $item['quantity'] }}</td>
                         <td>
-                            <form action="{{ route('admin/cart/remove') }}" method="POST">
+                            <form action="{{ route('cart.remove') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $item['product']->id }}">
                                 <button type="submit" class="btn btn-danger">Remove</button>

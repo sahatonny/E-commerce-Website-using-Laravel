@@ -47,10 +47,16 @@ class ProfileController extends Controller
 
         return redirect('/')->with('success', 'Profile deleted successfully.');
     }
-    public function show($id)
+    public function show()
     {
-        // Fetch profile data by ID
-      
+        $user = Auth::user();
+        return view('profile.show', compact('user'));
+    }
+
+    // Show the form for creating a new profile (optional if profiles are created on registration)
+    public function create()
+    {
+        return view('profile.create');
     }
 
 

@@ -1,10 +1,7 @@
 @extends('frontend.index')
 @section('content')
 <div class="container">
-    <h1 class="page-title">Products
-    <form action="/admin/products/create" method="GET">
-         <input type="submit" value="Create new product" class="btn btn-primary" required>
-    </form></h1>
+    <h1 class="page-title">Products</h1>
 
 
 
@@ -23,7 +20,7 @@
                 <tr>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
-                    <td>{{ number_format($product->price, 2) }}</td>
+                    <td>${{ number_format($product->price, 2) }}</td>
                     <td><img src="{{ $product->image }}" alt="{{ $product->name }}"></td>
                 </tr>
             @endforeach
@@ -36,25 +33,33 @@
 <style>
 /* Container Styles */
 .container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Page Title Styles */
 .page-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Form Title Styles */
+.form-title {
     font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
     color: #333;
 }
 
-.create-product-form {
-    margin: 0;
-}
-
-.btn-primary {
+/* Button Styles */
+.btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -71,7 +76,6 @@
 .btn-primary:hover {
     background-color: #0056b3;
 }
-
 
 .mt-3 {
     margin-top: 1rem;

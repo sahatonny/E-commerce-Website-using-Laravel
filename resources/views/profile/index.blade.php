@@ -1,9 +1,12 @@
+@extends('frontend.index')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
@@ -70,6 +73,7 @@
                 <img src="https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE=" alt="Profile Picture" class="profile-pic" height="100" width= "200">
             </div>
 
+
             <!-- Profile Info -->
             <div class="profile-info">
                 <h1>Profile Name</h1>
@@ -125,8 +129,7 @@
                 <p>Joined: </p>
             </div>
 
-            <!-- Edit Profile Button -->
-            <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit Profile</a>
+        
         </div>
 
 
@@ -134,3 +137,4 @@
     </div>
 </body>
 </html>
+@endsection

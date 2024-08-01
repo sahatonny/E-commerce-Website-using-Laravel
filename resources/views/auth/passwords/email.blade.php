@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('frontend.index')
 @section('content')
     <div class="container">
         <form method="POST" action="{{ route('password.email') }}">
